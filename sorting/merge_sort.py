@@ -1,5 +1,6 @@
 
 """
+* we want to spilt untill we have 2 arrays with 1 element
 1. split array into 2 (left,right)
 2. sort left array
 3. sort right array
@@ -13,6 +14,21 @@
 4. [1,2,3,4,5,6,7,8]
 """
 
+def merge_sort(a: list):
+    """
+    sort list in complexity of O(nlogn)
+    """
+    if len(a) < 2:
+        return a
+
+    mid = len(a) // 2
+    left = a[0:mid]
+    right = a[mid:]
+
+    left = merge_sort(left)
+    right = merge_sort(right)
+
+    return merge(left, right)
 
 def merge(left: list, right: list):
     """
