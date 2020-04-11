@@ -5,7 +5,7 @@ def _swap(a: list, i: int, j: int):
     """
     a[j], a[i] = a[i], a[j]
 
-def _partition(a: list, start: int, end: int):
+def _partition(a: list, start: int, end: int) -> int:
     """
     rearrange list segment to items < pivot < items
     where pivot is the value from the end of the segment
