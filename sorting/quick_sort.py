@@ -1,3 +1,5 @@
+from random import randrange
+
 
 def _swap(a: list, i: int, j: int):
     """
@@ -26,9 +28,18 @@ def _partition(a: list, start: int, end: int) -> int:
 
     return part_idx
 
+def _rand_partition(a: list, start: int, end: int) -> int:
+    """
+    improves worst time complexity performance by choosing a randome pivot element
+    """
+    pivot_idx = randrange(start, end)
+    _swap(a, pivot_idx, end)
+
+    return _partition(a, start, end)
+
 def _sort(a, start, end):
     if start < end:
-        partition_idx = _partition(a, start, end)
+        partition_idx = _rand_partition(a, start, end)
         _sort(a, start, partition_idx-1)
         _sort(a, partition_idx+1, end)
 
