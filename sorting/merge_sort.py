@@ -1,22 +1,8 @@
-
-"""
-* we want to spilt untill we have 2 arrays with 1 element
-1. split array into 2 (left,right)
-2. sort left array
-3. sort right array
-4. merge left and right
-
-0. [2,4,1,6,8,5,3,7]
-       /       \
-1. [2,4,1,6] [8,5,3,7]
-2. [1,2,4,6]
-3.           [3,5,7,8]
-4. [1,2,3,4,5,6,7,8]
-"""
-
-def merge_sort(a: list):
+def merge_sort(a: list) -> list:
     """
-    sort list in complexity of O(nlogn)
+    return a sortted
+    - time complexity: O(n log n)
+    - space complexity: O(n)
     """
     if len(a) < 2:
         return a
@@ -28,11 +14,11 @@ def merge_sort(a: list):
     left = merge_sort(left)
     right = merge_sort(right)
 
-    return merge(left, right)
+    return _merge(left, right)
 
-def merge(left: list, right: list):
+def _merge(left: list, right: list):
     """
-    merge 2 lists
+    merge 2 lists in time complexity of O(n)
     """
     left_len: int = len(left)
     right_len: int = len(right)
